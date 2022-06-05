@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Eczar&family=Work+Sans&display=swap");
+
+.header {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.title {
+  font-family: "Eczar", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 125%;
+  letter-spacing: 0.02em;
+  margin-bottom: 15px;
+}
+
+.note {
+  font-family: "Work Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 150%;
+  color: #594f43;
+}
+
+.review {
+}
+
+.say {
+  width: 539px;
+  height: 150px;
+  font-family: "Work Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.employer {
+  font-family: "Work Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.contact a {
+  text-decoration: none;
+  color: #000;
+  font-family: "Work Sans", sans-serif;
+}
+
+.internship {
+  padding-top: 20px;
+  margin: 30px 60px;
+}
+.iTitle {
+  font-family: "Eczar", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 125%;
+  letter-spacing: 0.02em;
+  margin-bottom: 15px;
+  text-align: center;
+}
+.iInfo {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+.iImg {
+  /* max-width: 600px !important;
+  max-height: 460px !important; */
+}
+.iImg img {
+  border-radius: 15px;
+  /* max-width: 600px !important;
+  max-height: 460px !important; */
+  width: min(500px, 100%) !important;
+  max-width: 500px !important;
+  aspect-ratio: 1/1 !important;
+}
+.iText {
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  width: min(650px, 90%);
+}
+
+.iText > div {
+  margin-bottom: 10px;
+}
+
+.iText span {
+  font-size: 25px;
+  font-weight: 700;
+  margin-right: 10px;
+}
+.myMemories,
+.memories {
+  margin: 30px 60px;
+}
+
+.memories {
+  font-size: 40px;
+  font-weight: 600px;
+  font-family: "Eczar", sans-serif;
+  text-align: center;
+}
+
+.myMemories img {
+  border-radius: 15px !important;
+}
+
+.myMemories > span {
+  border-radius: 15px !important;
+  overflow: hidden !important;
+}
+
+.iText ul {
+  padding-inline-start: 20px !important;
+}
+
+@media screen and (max-width: 750px) {
+  .internship,
+  .memories {
+    margin: 30px 20px;
+  }
+  .memories {
+    font-size: 30px;
+  }
+}

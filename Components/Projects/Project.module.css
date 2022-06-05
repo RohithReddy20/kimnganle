@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Eczar&family=Work+Sans&display=swap");
+
+.project * {
+  font-family: "Work Sans", sans-serif !important;
+}
+
+.project {
+  background-color: #ffffff;
+  /* display: flex; */
+  border-radius: 30px;
+  width: 100%;
+  overflow: hidden;
+  /* height: 500px; */
+  align-items: center;
+  padding: 20px 20px 30px 20px;
+  column-gap: 15px;
+  margin-bottom: 30px;
+}
+
+.projectInfo {
+  /* width: 50%; */
+}
+
+.projectInfo > div {
+  margin-bottom: 15px;
+}
+
+.name {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 150%;
+  color: #000000;
+  text-align: center;
+}
+
+.desc {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 150%;
+  color: #594f43;
+}
+
+.link a {
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 150%;
+  color: #000000;
+}
+
+.projectImg {
+  /* width: 50%; */
+  /* aspect-ratio: 1/1;
+  height: 500px;
+  position: relative; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.projectImg img {
+  aspect-ratio: 1/1 !important;
+  width: 500px !important;
+  border-radius: 15px;
+}
+
+@media screen and (max-width: 700px) {
+  .desc {
+    font-size: 18px;
+  }
+  .projectImg img {
+    width: min(500px, 100%) !important;
+    max-width: 500px !important;
+  }
+}

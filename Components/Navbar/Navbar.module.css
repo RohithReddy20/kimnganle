@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+
+.navbar {
+  font-family: "Work Sans", sans-serif;
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+  justify-content: space-between;
+  height: 60px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+  position: relative;
+}
+
+.navbarLogo {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.navbarLogoNav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.navbarList {
+  display: flex;
+  gap: 20px;
+}
+
+.navbarListItem {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 150%;
+  color: #1b1a19;
+  cursor: pointer;
+  text-shadow: 2px 2px 5px #fff;
+  transition: all 0.2s linear;
+  text-decoration: none;
+}
+
+.navbarListItem:hover {
+  font-size: 21px;
+  text-shadow: 2px 2px 5px #6d6767;
+}
+
+.navbarIcons,
+.navbarIconsM {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.menu {
+  display: none;
+}
+
+.navbarMobile {
+  display: none;
+}
+
+.navbarIcons img[alt="fb"] {
+  height: 32px !important;
+  /* width: 32px !important; */
+}
+
+.flexClass {
+  display: flex;
+}
+
+@media screen and (max-width: 900px) {
+  .navbarList,
+  .navbarIcons {
+    display: none;
+  }
+  .menu {
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: -5px;
+  }
+  .navbarMobileF {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px;
+    padding: 10px;
+    z-index: 2;
+    height: 250px;
+    /* border-radius: 10px; */
+  }
+  .navbarListMobile {
+    display: flex;
+    flex-direction: column;
+  }
+  .navbarListMobile .navbarListItem {
+    height: 60px;
+  }
+  .navbarIconsM {
+    display: flex;
+  }
+  .navbar {
+    padding: 0 20px;
+  }
+}

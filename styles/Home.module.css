@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Eczar&family=Work+Sans&display=swap");
+
+.footer {
+  font-family: "Work Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 187px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #000;
+  height: 187px;
+  vertical-align: center;
+  margin: auto;
+}
