@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import { StyledEngineProvider } from "@mui/material/styles";
 import AlertParent from "../Alert/Alert";
 
+import emailjs from "emailjs-com";
+
+
 export default function Contact() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -12,34 +15,28 @@ export default function Contact() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
-    let data = {
-      firstName,
-      lastName,
-      subject,
-      email,
-      message
-    };
-    for (let item in data) {
-      if (item === "") {
-        setType("warning");
+    if (
+      firstName === "" ||
+      lastName === "" ||
+      subject === "" ||
+      message === "" ||
+      email === ""
+    ){
+      setType("warning");
         setResult("Empty fields detected");
         handleClick();
         return;
-      }
     }
-    fetch("/api/contact1", {
-      method: "POST",
-      headers: {
-        Accept: "application/json,text/plain, */*",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    })
-      .then((res) => {
-        // console.log(res.status, "Hello");
-        if (res.status === 200) {
+      emailjs
+        .sendForm(
+          "service_1rxidvj",
+          "template_i9ljjzh",
+          e.target,
+          "i9rK2cTibSaUKUXDN"
+        )
+        .then((res) => {
           setType("success");
           setResult("Message sent succesfully");
           handleClick();
@@ -48,20 +45,17 @@ export default function Contact() {
           setSubject("");
           setMessage("");
           setEmail("");
-        } else if (res.status === 561) {
-          setType("warning");
-          setResult("Empty fields detected");
-          handleClick();
-        } else {
+        })
+        .catch((err) => {
           setType("error");
           setResult("Failed to send message");
           handleClick();
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+          console.log(err);
+        });
+    
   };
+
+  
 
   const [open, setOpen] = React.useState(false);
   const [type, setType] = React.useState("success");
@@ -97,10 +91,11 @@ export default function Contact() {
         viewport={{ once: true }}
         className={styles.form}
       >
-        <form>
+        <form onSubmit={sendEmail} method="POST">
           <div className={styles.name}>
             <input
               value={firstName}
+              name="firstName"
               style={{ width: "50%" }}
               type="text"
               className={styles.firstName}
@@ -111,6 +106,7 @@ export default function Contact() {
             />
             <input
               value={lastName}
+              name="lastName"
               style={{ width: "50%" }}
               type="text"
               className={styles.lastName}
@@ -123,6 +119,7 @@ export default function Contact() {
           <div className={styles.semail}>
             <input
               value={subject}
+              name="subject"
               style={{ width: "30%" }}
               type="text"
               className={styles.subject}
@@ -133,6 +130,7 @@ export default function Contact() {
             />
             <input
               value={email}
+              name="email"
               style={{ width: "70%" }}
               type="text"
               className={styles.email}
@@ -159,9 +157,9 @@ export default function Contact() {
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              onClick={(e) => {
-                handleSubmit(e);
-              }}
+              // onClick={(e) => {
+              //   handleSubmit(e);
+              // }}
               type="submit"
             >
               Send Message

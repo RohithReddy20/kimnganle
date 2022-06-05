@@ -1,5 +1,6 @@
 // import dotenv from "dotenv-safe";
 // dotenv.config();
+const nodemailer = require("nodemailer");
 
 export default async function handler(req, res) {
   try {
@@ -15,7 +16,6 @@ export default async function handler(req, res) {
     } else {
       //       require("dotenv").config();
 
-      const nodemailer = require("nodemailer");
       const passwordG = process.env.NEXT_PUBLIC_PASSWORD;
 
       const transporter = nodemailer.createTransport({
