@@ -1,7 +1,7 @@
 // import dotenv from "dotenv-safe";
 // dotenv.config();
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
   try {
     if (
       !req.body ||
@@ -26,6 +26,17 @@ export default function handler(req, res) {
         },
       });
 
+      await new Promise((resolve, reject) => {
+        transporter.verify(function(error, success){
+          if(error){
+       console.log(error)
+            reject(error)
+          }else{
+            resolve(success)
+          }
+        })
+      })
+
       const mailOptions = {
         from: "rohith18151821@gmail.com",
         to: "19105008rohith@gmail.com",
@@ -38,17 +49,23 @@ export default function handler(req, res) {
   `,
       };
 
+     await new Promise((resolve, reject) => {
       transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
-          console.log(error);
+          console.log(error)
+          res.status(500).json({ error: "Failed to send message" });
+          reject(error)
         } else {
           console.log("Email Sent " + info.response);
+          resolve(info)
         }
       });
 
       res.status(200).json({ result: "success" });
+     })
     }
   } catch (error) {
     res.status(500).json({ error: "Failed to send message" });
+    console.log(error)
   }
 }
